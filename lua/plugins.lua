@@ -5,5 +5,7 @@ return {
 	require("plugins.treesitter"),
 	require("plugins.neo-tree"),
 	require("plugins.lualine"),
+	require("plugins.mason"),
+		require("plugins.mason-lspconfig"),
 }
 
