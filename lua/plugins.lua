@@ -7,5 +7,6 @@ return {
 	require("plugins.lualine"),
 	require("plugins.mason"),
 		require("plugins.mason-lspconfig"),
+		require("plugins.lspconfig"),
 }
 
