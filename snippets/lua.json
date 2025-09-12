@@ -1,0 +1,29 @@
+{
+  "Neovim Plugin Spec": {
+    "prefix": "pluginspec",
+    "body": [
+      "return {",
+      "  '${1:plugin/name}',",
+      "  dependencies = {",
+      "    $2",
+      "  },",
+      "  config = function()",
+      "    $3",
+      "  end,",
+      "}"
+    ],
+    "description": "Neovim plugin specification for lazy.nvim"
+  },
+  "Lua Function": {
+    "prefix": "func",
+    "body": ["local function ${1:function_name}(${2:args})", "  $3", "end"],
+    "description": "Lua function template"
+  },
+  "Keymap Set": {
+    "prefix": "keymap",
+    "body": [
+      "vim.keymap.set('${1:n}', '${2:<leader>key}', ${3:function() end}, { desc = '${4:Description}' })"
+    ],
+    "description": "Neovim keymap.set template"
+  }
+}

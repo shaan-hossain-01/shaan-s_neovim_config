@@ -31,6 +31,8 @@ return {
       "svelte",        -- Svelte
       "angularls",     -- Angular
       "astro",         -- Astro framework
+      -- Note: For Vue.js, use vls (Vue Language Server) if needed, but it has installation issues
+      -- Vue support is also provided by ts_ls for Vue + TypeScript projects
       
       -- Backend languages
       "pyright",       -- Python
@@ -61,6 +63,9 @@ return {
       "marksman",      -- Markdown
       "lemminx",       -- XML
       "taplo",         -- TOML
+      
+      -- Additional web development tools
+      "biome",         -- Fast formatter/linter for JS/TS (alternative to Prettier/ESLint)
       
       -- Lua for Neovim config/dev
       "lua_ls",

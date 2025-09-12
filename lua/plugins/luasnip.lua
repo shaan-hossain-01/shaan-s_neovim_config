@@ -35,6 +35,24 @@ return {
     -- You can add your own snippets to ~/.config/nvim/snippets/
     require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
     
+    -- Framework-specific snippets extensions for full-stack development
+    -- Add framework snippets to relevant filetypes
+    require("luasnip").filetype_extend("ruby", {"rails"})
+    require("luasnip").filetype_extend("javascript", {"react", "node"})
+    require("luasnip").filetype_extend("typescript", {"react", "node"})
+    require("luasnip").filetype_extend("javascriptreact", {"react"})
+    require("luasnip").filetype_extend("typescriptreact", {"react"})
+    require("luasnip").filetype_extend("python", {"django", "flask"})
+    require("luasnip").filetype_extend("html", {"django-html"})
+    require("luasnip").filetype_extend("css", {"tailwindcss"})
+    require("luasnip").filetype_extend("php", {"laravel"})
+    require("luasnip").filetype_extend("vue", {"vue"})
+    require("luasnip").filetype_extend("go", {"gin", "echo"})
+    require("luasnip").filetype_extend("java", {"spring"})
+    require("luasnip").filetype_extend("sql", {"mysql", "postgresql"})
+    require("luasnip").filetype_extend("dockerfile", {"docker"})
+    require("luasnip").filetype_extend("yaml", {"kubernetes", "docker-compose"})
+    
     -- Keymaps for LuaSnip
     vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
     vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})

@@ -1,0 +1,34 @@
+{
+  "Custom Print Debug": {
+    "prefix": "cprint",
+    "body": ["print(f'🐍 Debug {$1}: {$1}')"],
+    "description": "Custom Python debug print with snake emoji"
+  },
+  "FastAPI Route": {
+    "prefix": "fastapi",
+    "body": [
+      "@app.${1:get}('/${2:endpoint}')",
+      "async def ${3:function_name}():",
+      "    ${4:# Your code here}",
+      "    return {\"message\": \"${5:Success}\"}"
+    ],
+    "description": "FastAPI route template"
+  },
+  "Django Model": {
+    "prefix": "dmodel",
+    "body": [
+      "class ${1:ModelName}(models.Model):",
+      "    ${2:field_name} = models.${3:CharField}(${4:max_length=100})",
+      "    created_at = models.DateTimeField(auto_now_add=True)",
+      "    updated_at = models.DateTimeField(auto_now=True)",
+      "",
+      "    def __str__(self):",
+      "        return self.${5:field_name}",
+      "",
+      "    class Meta:",
+      "        verbose_name = '${6:Model Name}'",
+      "        verbose_name_plural = '${7:Model Names}'"
+    ],
+    "description": "Django model template"
+  }
+}

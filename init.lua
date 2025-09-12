@@ -34,14 +34,18 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
--- Enable Treesitter-based folding
+-- Enable Treesitter-based folding (Nvim 0.10+ API with fallback for 0.9)
 vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+if vim.treesitter and vim.treesitter.foldexpr then
+  vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+else
+  -- Fallback for older Neovim versions
+  vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+end
 
--- Telescope keymaps
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+-- Telescope keymaps (use commands so plugin can lazy-load)
+vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<CR>', { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', { desc = 'Telescope help tags' })
 vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>')

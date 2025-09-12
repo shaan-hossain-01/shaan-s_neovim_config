@@ -9,9 +9,11 @@ return {
 	require("plugins.mason"),
 		require("plugins.mason-lspconfig"),
 		require("plugins.lspconfig"),
+		require("plugins.mason-nvim-dap"),
 	require("plugins.none-ls"),
 	require("plugins.nvim-cmp"),
 	require("plugins.luasnip"),
 	require("plugins.alpha"),
+	require("plugins.nvim-dap"),
 }
 

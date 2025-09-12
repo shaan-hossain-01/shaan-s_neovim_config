@@ -1,0 +1,30 @@
+{
+  "Custom Interface": {
+    "prefix": "cinterface",
+    "body": [
+      "interface ${1:InterfaceName} {",
+      "  ${2:property}: ${3:type};",
+      "}"
+    ],
+    "description": "Custom TypeScript interface"
+  },
+  "Custom Type": {
+    "prefix": "ctype",
+    "body": ["type ${1:TypeName} = {", "  ${2:property}: ${3:type};", "};"],
+    "description": "Custom TypeScript type"
+  },
+  "Express Route Handler": {
+    "prefix": "routehandler",
+    "body": [
+      "app.${1:get}('/${2:route}', async (req: Request, res: Response) => {",
+      "  try {",
+      "    $3",
+      "    res.status(200).json({ success: true });",
+      "  } catch (error) {",
+      "    res.status(500).json({ error: error.message });",
+      "  }",
+      "});"
+    ],
+    "description": "Express.js route handler with TypeScript"
+  }
+}
