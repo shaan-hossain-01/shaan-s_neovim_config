@@ -10,6 +10,7 @@ return {
 		require("plugins.mason-lspconfig"),
 		require("plugins.lspconfig"),
 	require("plugins.none-ls"),
+	require("plugins.nvim-cmp"),
 	require("plugins.alpha"),
 }
 

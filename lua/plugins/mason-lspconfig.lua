@@ -4,12 +4,17 @@ return {
   dependencies = {
     { "mason-org/mason.nvim", opts = {} },
     "neovim/nvim-lspconfig",
+    "hrsh7th/cmp-nvim-lsp", -- For nvim-cmp integration
   },
   opts = {},
   config = function(_, opts)
     -- Ensure Mason and mason-lspconfig are set up
     require("mason").setup({})
     local mlsp = require("mason-lspconfig")
+    
+    -- Set up nvim-cmp capabilities for LSP
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    
     -- MERN + Full-stack web development language servers
     local servers = {
       -- Core MERN (JS/TS/React ecosystem)
@@ -78,6 +83,7 @@ return {
           function(server_name)
             if server_name == "lua_ls" then
               lspconfig.lua_ls.setup({
+                capabilities = capabilities,
                 settings = {
                   Lua = {
                     diagnostics = { globals = { "vim" } },
@@ -91,7 +97,9 @@ return {
               })
               return
             end
-            lspconfig[server_name].setup({})
+            lspconfig[server_name].setup({
+              capabilities = capabilities,
+            })
           end,
         })
       else
@@ -99,6 +107,7 @@ return {
         for _, server_name in ipairs(servers) do
           if server_name == "lua_ls" then
             lspconfig.lua_ls.setup({
+              capabilities = capabilities,
               settings = {
                 Lua = {
                   diagnostics = { globals = { "vim" } },
@@ -111,7 +120,9 @@ return {
               },
             })
           else
-            lspconfig[server_name].setup({})
+            lspconfig[server_name].setup({
+              capabilities = capabilities,
+            })
           end
         end
       end
