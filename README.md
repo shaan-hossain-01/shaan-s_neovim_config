@@ -1,6 +1,12 @@
 # Shaan's Neovim Config (Lazy.nvim)
 
-A clean, modular Neovim setup powered by lazy.nvim. It’s optimized for MERN/full‑stack development and ships with first‑class LSP, Treesitter, Telescope, formatting, completion/snippets, and an integrated Debugger (DAP) UI.
+A clean, modular Neovim setup powered by lazy.nvim. It’s optimized for MERN/full‑stack development and ships with first‑class LSP, Treesitter, Telescope, formatting, completion/sni## Troubleshooting
+
+- Mason install issues: open `:Mason`, (re)install items, and check `:MasonLog` if needed.
+- none‑ls: ensure corresponding binaries are installed (Prettier, Black, isort, gofmt, shfmt, ESLint, etc.). Remove unused sources if you don't need them.
+- **ESLint v9+ configuration**: ESLint now requires `eslint.config.js` instead of `.eslintrc.*` files. The config automatically detects and only enables ESLint if a config file exists. For new projects, create an `eslint.config.js` file or migrate existing `.eslintrc.*` files using the [migration guide](https://eslint.org/docs/latest/use/configure/migration-guide).
+- JS/TS monorepos: prefer project‑local ESLint/Prettier so config resolution matches the repo.
+- DAP adapters: make sure project tools are runnable (e.g., `python`, `node`, `go`, compiled binaries for codelldb targets`). and an integrated Debugger (DAP) UI.
 
 - Leader: Space (`<Space>`)
 - Localleader: `\`
@@ -137,6 +143,13 @@ LSP (from `lua/plugins/lspconfig.lua`)
 - Insert `<C-s>` — Signature help
 - Visual `an` — Selection range (outer)
 - Visual `in` — Selection range (inner)
+
+LSP Diagnostics (from `lua/plugins/lspconfig.lua`)
+
+- Normal `<leader>e` — Show diagnostic error (hover-like popup)
+- Normal `[d` — Go to previous diagnostic
+- Normal `]d` — Go to next diagnostic
+- Normal `<leader>q` — Open diagnostic quickfix list
 
 Formatting (from `lua/plugins/none-ls.lua`)
 

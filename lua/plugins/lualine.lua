@@ -14,6 +14,11 @@ return {
         section_separators = { left = "", right = "" },
         disabled_filetypes = { statusline = {}, winbar = {} },
       },
+      sections = {
+        lualine_c = {"filename", {
+          'diagnostics',
+          symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}}}
+      }
     })
   end,
 }
